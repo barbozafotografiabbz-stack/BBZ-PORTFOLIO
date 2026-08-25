@@ -25,7 +25,7 @@
 
     /* =========================
        HERO
-    ========================= */
+    ========================== */
 
     .hero {
       min-height: 100vh;
@@ -85,7 +85,7 @@
 
     /* =========================
        PORTFÓLIO
-    ========================= */
+    ========================== */
 
     .portfolio {
       padding: 120px 5vw;
@@ -120,7 +120,9 @@
       line-height: 1.7;
     }
 
-    /* GALERIA */
+    /* =========================
+       GALERIA
+    ========================== */
 
     .gallery {
       max-width: 1400px;
@@ -151,7 +153,7 @@
 
     /* =========================
        CONTATO
-    ========================= */
+    ========================== */
 
     .contact {
       padding: 140px 20px;
@@ -177,6 +179,7 @@
     .contact p {
       color: #888;
       margin-bottom: 40px;
+      line-height: 1.6;
     }
 
     .contact-button {
@@ -198,7 +201,7 @@
 
     /* =========================
        FOOTER
-    ========================= */
+    ========================== */
 
     footer {
       padding: 30px 20px;
@@ -211,7 +214,7 @@
 
     /* =========================
        MOBILE
-    ========================= */
+    ========================== */
 
     @media (max-width: 700px) {
 
@@ -250,6 +253,10 @@
       .contact {
         padding: 100px 20px;
       }
+
+      .contact h2 {
+        letter-spacing: -2px;
+      }
     }
   </style>
 </head>
@@ -269,7 +276,7 @@
       </div>
 
       <img
-        src="bbz_01.png"
+        src="./bbz_01.png"
         alt="BBZ Fotografia Esportiva"
         class="logo"
       >
@@ -316,31 +323,55 @@
 
     <div class="gallery">
 
-  <div class="gallery-item">
-    <img src="JIU-JITSU.jpg" alt="Fotografia de Jiu-Jitsu">
-  </div>
+      <div class="gallery-item">
+        <img
+          src="./JIU-JITSU.jpg"
+          alt="Fotografia de Jiu-Jitsu"
+          loading="lazy"
+        >
+      </div>
 
-  <div class="gallery-item">
-    <img src="CASAMENTO.jpg" alt="Fotografia de casamento">
-  </div>
+      <div class="gallery-item">
+        <img
+          src="./CASAMENTO.jpg"
+          alt="Fotografia de casamento"
+          loading="lazy"
+        >
+      </div>
 
-  <div class="gallery-item">
-    <img src="LIFESTYLI.jpg" alt="Fotografia Lifestyle">
-  </div>
+      <div class="gallery-item">
+        <img
+          src="./LIFESTYLI.jpg"
+          alt="Fotografia Lifestyle"
+          loading="lazy"
+        >
+      </div>
 
-  <div class="gallery-item">
-    <img src="MARCA.jpg" alt="Fotografia de marca">
-  </div>
+      <div class="gallery-item">
+        <img
+          src="./MARCA.jpg"
+          alt="Fotografia de marca"
+          loading="lazy"
+        >
+      </div>
 
-  <div class="gallery-item">
-    <img src="MUSICA.jpg" alt="Fotografia de música">
-  </div>
+      <div class="gallery-item">
+        <img
+          src="./MUSICA.jpg"
+          alt="Fotografia de música"
+          loading="lazy"
+        >
+      </div>
 
-  <div class="gallery-item">
-    <img src="PODCAST.jpg" alt="Fotografia de podcast">
-  </div>
+      <div class="gallery-item">
+        <img
+          src="./PODCAST.jpg"
+          alt="Fotografia de podcast"
+          loading="lazy"
+        >
+      </div>
 
-</div>
+    </div>
 
   </section>
 
@@ -369,12 +400,17 @@
       href="https://wa.me/5500000000000"
       class="contact-button"
       target="_blank"
+      rel="noopener noreferrer"
     >
       Falar pelo WhatsApp
     </a>
 
   </section>
 
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
   <footer>
     © 2026 BBZ Fotografia Esportiva
