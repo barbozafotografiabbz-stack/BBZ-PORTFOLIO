@@ -1,1177 +1,1176 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>BBZ Fotografia Esportiva</title>
+<title>BBZ Fotografia Esportiva</title>
 
-  <style>
+<style>
 
-    /* =====================================================
-       RESET
-    ===================================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+html{
+    scroll-behavior:smooth;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+body{
+    background:#080808;
+    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+}
 
-    body {
-      background: #070707;
-      color: #fff;
-      font-family: Arial, Helvetica, sans-serif;
-      overflow-x: hidden;
-    }
+/* =========================
+   ANIMAÇÕES
+========================= */
 
-    img {
-      max-width: 100%;
-    }
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:opacity .8s ease, transform .8s ease;
+}
 
-
-    /* =====================================================
-       CORES
-    ===================================================== */
-
-    :root {
-      --red: #e30613;
-      --red-dark: #a9000b;
-      --black: #070707;
-      --dark: #0d0d0d;
-      --gray: #999;
-      --light-gray: #ccc;
-    }
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
 
 
-    /* =====================================================
-       ANIMAÇÕES
-    ===================================================== */
+/* =========================
+   HERO
+========================= */
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(35px);
-      }
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 20px;
+}
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+.hero-content{
+    width:100%;
+    max-width:1000px;
+}
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
+.eyebrow{
+    font-size:12px;
+    letter-spacing:6px;
+    text-transform:uppercase;
+    color:#aaa;
+    margin-bottom:45px;
+}
 
-      to {
-        opacity: 1;
-      }
-    }
+.logo{
+    width:min(560px,88vw);
+    height:auto;
+    display:block;
+    margin:0 auto;
+}
 
-    @keyframes lineIn {
-      from {
-        width: 0;
-      }
+.subtitle{
+    margin-top:55px;
+    font-size:15px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#aaa;
+}
 
-      to {
-        width: 55px;
-      }
-    }
+.button{
+    display:inline-block;
+    margin-top:50px;
+    padding:17px 38px;
+    border:1px solid rgba(255,255,255,.35);
+    color:#fff;
+    text-decoration:none;
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    transition:.3s ease;
+}
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(35px);
-      transition:
-        opacity .8s ease,
-        transform .8s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
+.button:hover{
+    background:#fff;
+    color:#000;
+    border-color:#fff;
+}
 
 
-    /* =====================================================
-       HERO
-    ===================================================== */
+/* =========================
+   PORTFÓLIO
+========================= */
 
-    .hero {
-      min-height: 100vh;
+.portfolio{
+    padding:110px 30px;
+    background:#0d0d0d;
+}
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+.portfolio-header{
+    max-width:1100px;
+    margin:0 auto 55px;
+}
 
-      text-align: center;
+.portfolio-label{
+    font-size:11px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#777;
+    margin-bottom:15px;
+}
 
-      padding: 50px 20px;
+.portfolio-title{
+    font-size:clamp(38px,6vw,75px);
+    line-height:1;
+    text-transform:uppercase;
+    letter-spacing:-2px;
+}
 
-      position: relative;
+.portfolio-description{
+    max-width:600px;
+    margin-top:20px;
+    color:#888;
+    font-size:15px;
+    line-height:1.7;
+}
 
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(227, 6, 19, .07),
-          transparent 45%
-        ),
-        #070707;
-    }
 
-    .hero::after {
-      content: "";
+/* =========================
+   GALERIA PRINCIPAL
+========================= */
 
-      position: absolute;
+.gallery{
+    max-width:1100px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
 
-      bottom: 0;
-      left: 50%;
+.gallery-item{
+    position:relative;
+    overflow:hidden;
+    background:#151515;
+    border-radius:2px;
+    cursor:pointer;
+}
 
-      width: 1px;
-      height: 70px;
+.gallery-item img{
+    width:100%;
+    height:auto;
+    display:block;
+    transition:transform .6s ease;
+}
 
-      background: linear-gradient(
+.gallery-item:hover img{
+    transform:scale(1.035);
+}
+
+.gallery-title{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+
+    padding:35px 18px 18px;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.9),
+        rgba(0,0,0,.45),
+        transparent
+    );
+
+    color:#fff;
+
+    font-size:13px;
+    font-weight:600;
+
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.gallery-number{
+    color:#aaa;
+    font-size:11px;
+    letter-spacing:1px;
+}
+
+
+/* =========================
+   BOTÃO VER GALERIA
+========================= */
+
+.gallery-action{
+    max-width:1100px;
+    margin:35px auto 0;
+    text-align:center;
+}
+
+.gallery-button{
+    display:inline-block;
+    padding:15px 30px;
+    border:1px solid #333;
+    color:#fff;
+    background:transparent;
+    text-decoration:none;
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.gallery-button:hover{
+    background:#fff;
+    color:#000;
+}
+
+
+/* =========================
+   MODAL / GALERIA
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.96);
+    z-index:9999;
+
+    display:none;
+    opacity:0;
+
+    transition:opacity .3s ease;
+}
+
+.modal.active{
+    display:block;
+    opacity:1;
+}
+
+.modal-header{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+
+    height:80px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 35px;
+
+    background:linear-gradient(
         to bottom,
-        transparent,
-        var(--red)
-      );
+        rgba(0,0,0,.8),
+        transparent
+    );
 
-      transform: translateX(-50%);
+    z-index:5;
+}
+
+.modal-title{
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+.modal-close{
+    width:42px;
+    height:42px;
+
+    border:1px solid #444;
+    background:transparent;
+    color:#fff;
+
+    font-size:24px;
+    cursor:pointer;
+
+    transition:.3s ease;
+}
+
+.modal-close:hover{
+    background:#fff;
+    color:#000;
+}
+
+.modal-gallery{
+    height:100vh;
+    overflow-y:auto;
+
+    padding:100px 5vw 60px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.modal-photo{
+    width:100%;
+    height:auto;
+    display:block;
+
+    opacity:0;
+    transform:translateY(20px);
+
+    animation:photoIn .6s ease forwards;
+}
+
+@keyframes photoIn{
+
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 
-    .hero-content {
-      width: 100%;
-      max-width: 1000px;
+}
 
-      animation: fadeUp 1.2s ease forwards;
+
+/* =========================
+   QUEM SOU EU
+========================= */
+
+.about{
+    padding:120px 30px;
+    background:#080808;
+}
+
+.about-inner{
+    max-width:1100px;
+    margin:0 auto;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:60px;
+}
+
+.about-image{
+    width:100%;
+    max-width:500px;
+    margin:0 auto;
+
+    display:block;
+}
+
+.about-content{
+    max-width:520px;
+}
+
+.about-label{
+    font-size:11px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#777;
+    margin-bottom:20px;
+}
+
+.about-title{
+    font-size:clamp(38px,5vw,65px);
+    line-height:.95;
+    text-transform:uppercase;
+    letter-spacing:-2px;
+    margin-bottom:30px;
+}
+
+.about-text{
+    color:#999;
+    font-size:15px;
+    line-height:1.8;
+}
+
+.about-button{
+    display:inline-block;
+    margin-top:35px;
+
+    padding:16px 34px;
+
+    border:1px solid rgba(255,255,255,.35);
+
+    color:#fff;
+    text-decoration:none;
+
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+
+    transition:.3s ease;
+}
+
+.about-button:hover{
+    background:#fff;
+    color:#000;
+}
+
+
+/* =========================
+   CONTATO
+========================= */
+
+.contact{
+    padding:140px 20px;
+    text-align:center;
+    background:#0d0d0d;
+}
+
+.contact-label{
+    font-size:11px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#777;
+    margin-bottom:20px;
+}
+
+.contact h2{
+    font-size:clamp(38px,7vw,80px);
+    text-transform:uppercase;
+    letter-spacing:-3px;
+    margin-bottom:25px;
+}
+
+.contact p{
+    color:#888;
+    margin-bottom:40px;
+}
+
+.contact-button{
+    display:inline-block;
+
+    padding:17px 38px;
+
+    border:1px solid rgba(255,255,255,.35);
+
+    color:#fff;
+    text-decoration:none;
+
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+
+    transition:.3s ease;
+}
+
+.contact-button:hover{
+    background:#fff;
+    color:#000;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:30px 20px;
+    text-align:center;
+    border-top:1px solid #1c1c1c;
+    color:#555;
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:900px){
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .eyebrow {
-      font-size: 12px;
-
-      letter-spacing: 6px;
-
-      text-transform: uppercase;
-
-      color: #aaa;
-
-      margin-bottom: 45px;
+    .modal-gallery{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .logo {
-      width: min(560px, 88vw);
-
-      height: auto;
-
-      display: block;
-
-      margin: 0 auto;
-
-      filter: drop-shadow(
-        0 0 25px rgba(227, 6, 19, .08)
-      );
+    .about-inner{
+        grid-template-columns:1fr;
     }
 
-    .subtitle {
-      margin-top: 55px;
-
-      font-size: 15px;
-
-      letter-spacing: 4px;
-
-      text-transform: uppercase;
-
-      color: #aaa;
+    .about-content{
+        max-width:700px;
+        margin:0 auto;
+        text-align:center;
     }
 
-    .button {
-      display: inline-block;
+}
 
-      margin-top: 50px;
 
-      padding: 17px 38px;
+/* =========================
+   MOBILE
+========================= */
 
-      border: 1px solid rgba(255,255,255,.35);
+@media(max-width:600px){
 
-      color: #fff;
-
-      text-decoration: none;
-
-      font-size: 12px;
-
-      letter-spacing: 3px;
-
-      text-transform: uppercase;
-
-      transition: .3s ease;
+    .hero{
+        min-height:100svh;
     }
 
-    .button:hover {
-      background: var(--red);
-
-      border-color: var(--red);
-
-      color: #fff;
-
-      transform: translateY(-3px);
+    .eyebrow{
+        font-size:10px;
+        letter-spacing:4px;
+        margin-bottom:30px;
     }
 
-
-    /* =====================================================
-       PORTFÓLIO
-    ===================================================== */
-
-    .portfolio {
-      padding: 120px 30px;
-
-      background: #0d0d0d;
+    .logo{
+        width:90vw;
     }
 
-    .portfolio-header {
-      max-width: 1100px;
-
-      margin: 0 auto 55px;
+    .subtitle{
+        margin-top:35px;
+        font-size:11px;
+        letter-spacing:3px;
     }
 
-    .portfolio-label {
-      font-size: 11px;
-
-      letter-spacing: 5px;
-
-      text-transform: uppercase;
-
-      color: var(--red);
-
-      margin-bottom: 15px;
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 12px;
+    .button{
+        margin-top:35px;
     }
 
-    .portfolio-label::before {
-      content: "";
-
-      width: 40px;
-      height: 2px;
-
-      background: var(--red);
-
-      display: block;
+    .portfolio{
+        padding:80px 20px;
     }
 
-    .portfolio-title {
-      font-size: clamp(38px, 6vw, 75px);
-
-      line-height: 1;
-
-      text-transform: uppercase;
-
-      letter-spacing: -2px;
+    .gallery{
+        grid-template-columns:1fr;
+        gap:15px;
     }
 
-    .portfolio-description {
-      max-width: 600px;
-
-      margin-top: 20px;
-
-      color: #888;
-
-      font-size: 15px;
-
-      line-height: 1.7;
+    .gallery-title{
+        font-size:12px;
     }
 
-
-    /* =====================================================
-       GALERIA
-    ===================================================== */
-
-    .gallery {
-      max-width: 1100px;
-
-      margin: 0 auto;
-
-      display: grid;
-
-      grid-template-columns: repeat(3, 1fr);
-
-      gap: 18px;
+    .modal-header{
+        padding:0 20px;
     }
 
-    .gallery-item {
-      position: relative;
-
-      overflow: hidden;
-
-      background: #050505;
-
-      border: 1px solid #202020;
-
-      border-radius: 3px;
-
-      aspect-ratio: 4 / 3;
-
-      transition:
-        transform .5s ease,
-        border-color .5s ease,
-        box-shadow .5s ease;
+    .modal-gallery{
+        grid-template-columns:1fr;
+        padding:90px 20px 40px;
     }
 
-    .gallery-item:hover {
-      transform: translateY(-6px);
-
-      border-color: rgba(227, 6, 19, .65);
-
-      box-shadow:
-        0 15px 40px rgba(0,0,0,.45);
+    .about{
+        padding:90px 20px;
     }
 
-
-    /* =====================================================
-       IMAGENS DOS CARDS
-       
-       IMPORTANTE:
-       CONTAIN = NÃO CORTA A FOTO
-    ===================================================== */
-
-    .gallery-item img {
-      width: 100%;
-
-      height: 100%;
-
-      display: block;
-
-      object-fit: contain;
-
-      object-position: center;
-
-      background: #080808;
-
-      transition:
-        transform .6s ease,
-        opacity .4s ease;
+    .contact{
+        padding:100px 20px;
     }
 
-    .gallery-item:hover img {
-      transform: scale(1.025);
-    }
+}
 
-
-    /* =====================================================
-       TÍTULO DOS CARDS
-    ===================================================== */
-
-    .gallery-title {
-      position: absolute;
-
-      left: 0;
-      right: 0;
-      bottom: 0;
-
-      padding: 30px 18px 16px;
-
-      background:
-        linear-gradient(
-          to top,
-          rgba(0,0,0,.95),
-          rgba(0,0,0,.65),
-          transparent
-        );
-
-      color: #fff;
-
-      font-size: 13px;
-
-      font-weight: 600;
-
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 12px;
-    }
-
-    .gallery-number {
-      color: var(--red);
-
-      font-size: 11px;
-
-      letter-spacing: 1px;
-
-      font-weight: bold;
-    }
-
-
-    /* =====================================================
-       QUEM SOU EU
-    ===================================================== */
-
-    .about {
-      padding: 130px 30px;
-
-      background: #080808;
-    }
-
-    .about-container {
-      max-width: 1100px;
-
-      margin: 0 auto;
-
-      display: grid;
-
-      grid-template-columns: minmax(300px, 470px) 1fr;
-
-      align-items: center;
-
-      gap: 70px;
-    }
-
-
-    /* FOTO */
-
-    .about-image-wrapper {
-      position: relative;
-
-      width: 100%;
-
-      background: #111;
-
-      padding: 10px;
-
-      border: 1px solid #242424;
-    }
-
-    .about-image-wrapper::before {
-      content: "";
-
-      position: absolute;
-
-      top: -8px;
-      left: -8px;
-
-      width: 55px;
-      height: 55px;
-
-      border-top: 2px solid var(--red);
-
-      border-left: 2px solid var(--red);
-    }
-
-    .about-image-wrapper::after {
-      content: "";
-
-      position: absolute;
-
-      right: -8px;
-      bottom: -8px;
-
-      width: 55px;
-      height: 55px;
-
-      border-right: 2px solid var(--red);
-
-      border-bottom: 2px solid var(--red);
-    }
-
-    .about-image {
-      width: 100%;
-
-      height: 430px;
-
-      object-fit: cover;
-
-      object-position: center;
-
-      display: block;
-    }
-
-
-    /* TEXTO */
-
-    .about-label {
-      font-size: 11px;
-
-      letter-spacing: 5px;
-
-      text-transform: uppercase;
-
-      color: var(--red);
-
-      margin-bottom: 18px;
-    }
-
-    .about-title {
-      font-size: clamp(38px, 5vw, 65px);
-
-      line-height: .95;
-
-      text-transform: uppercase;
-
-      letter-spacing: -2px;
-
-      margin-bottom: 28px;
-    }
-
-    .about-title span {
-      color: var(--red);
-    }
-
-    .about-text {
-      color: #999;
-
-      font-size: 15px;
-
-      line-height: 1.8;
-
-      max-width: 560px;
-
-      margin-bottom: 32px;
-    }
-
-    .about-button {
-      display: inline-block;
-
-      padding: 16px 32px;
-
-      background: var(--red);
-
-      color: #fff;
-
-      text-decoration: none;
-
-      font-size: 11px;
-
-      font-weight: bold;
-
-      letter-spacing: 3px;
-
-      text-transform: uppercase;
-
-      transition: .3s ease;
-    }
-
-    .about-button:hover {
-      background: #fff;
-
-      color: #000;
-
-      transform: translateY(-3px);
-    }
-
-
-    /* =====================================================
-       CONTATO
-    ===================================================== */
-
-    .contact {
-      padding: 140px 20px;
-
-      text-align: center;
-
-      background:
-        linear-gradient(
-          rgba(227,6,19,.05),
-          transparent
-        ),
-        #080808;
-
-      border-top: 1px solid #181818;
-    }
-
-    .contact-label {
-      font-size: 11px;
-
-      letter-spacing: 5px;
-
-      text-transform: uppercase;
-
-      color: var(--red);
-
-      margin-bottom: 20px;
-    }
-
-    .contact h2 {
-      font-size: clamp(38px, 7vw, 80px);
-
-      text-transform: uppercase;
-
-      letter-spacing: -3px;
-
-      margin-bottom: 25px;
-    }
-
-    .contact p {
-      color: #888;
-
-      margin-bottom: 40px;
-    }
-
-    .contact-button {
-      display: inline-block;
-
-      padding: 17px 38px;
-
-      border: 1px solid var(--red);
-
-      background: var(--red);
-
-      color: #fff;
-
-      text-decoration: none;
-
-      font-size: 12px;
-
-      letter-spacing: 3px;
-
-      text-transform: uppercase;
-
-      transition: .3s ease;
-    }
-
-    .contact-button:hover {
-      background: transparent;
-
-      color: #fff;
-
-      transform: translateY(-3px);
-    }
-
-
-    /* =====================================================
-       FOOTER
-    ===================================================== */
-
-    footer {
-      padding: 30px 20px;
-
-      text-align: center;
-
-      border-top: 1px solid #1c1c1c;
-
-      color: #555;
-
-      font-size: 11px;
-
-      letter-spacing: 2px;
-    }
-
-    footer span {
-      color: var(--red);
-    }
-
-
-    /* =====================================================
-       TABLET
-    ===================================================== */
-
-    @media (max-width: 900px) {
-
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .about-container {
-        grid-template-columns: 1fr;
-
-        max-width: 650px;
-
-        gap: 55px;
-      }
-
-      .about-image {
-        height: 500px;
-      }
-
-    }
-
-
-    /* =====================================================
-       MOBILE
-    ===================================================== */
-
-    @media (max-width: 600px) {
-
-      .hero {
-        min-height: 100svh;
-
-        padding: 40px 20px;
-      }
-
-      .eyebrow {
-        font-size: 10px;
-
-        letter-spacing: 4px;
-
-        margin-bottom: 30px;
-      }
-
-      .logo {
-        width: 90vw;
-      }
-
-      .subtitle {
-        margin-top: 35px;
-
-        font-size: 11px;
-
-        letter-spacing: 3px;
-      }
-
-      .button {
-        margin-top: 35px;
-      }
-
-
-      /* PORTFÓLIO */
-
-      .portfolio {
-        padding: 80px 20px;
-      }
-
-      .portfolio-title {
-        font-size: 44px;
-      }
-
-
-      /* GALERIA */
-
-      .gallery {
-        grid-template-columns: 1fr;
-
-        gap: 15px;
-      }
-
-      .gallery-item {
-        aspect-ratio: 4 / 3;
-      }
-
-      .gallery-title {
-        font-size: 12px;
-      }
-
-
-      /* ABOUT */
-
-      .about {
-        padding: 90px 20px;
-      }
-
-      .about-container {
-        gap: 45px;
-      }
-
-      .about-image-wrapper {
-        padding: 7px;
-      }
-
-      .about-image {
-        height: 380px;
-      }
-
-      .about-title {
-        font-size: 43px;
-      }
-
-
-      /* CONTATO */
-
-      .contact {
-        padding: 100px 20px;
-      }
-
-    }
-
-  </style>
+</style>
 </head>
 
 
 <body>
 
 
-  <!-- =====================================================
-       HERO
-  ====================================================== -->
+<!-- =========================
+     HERO
+========================= -->
 
-  <section class="hero">
+<section class="hero">
 
-    <div class="hero-content">
+    <div class="hero-content reveal">
 
-      <div class="eyebrow">
-        Fotografia & Videomaker
-      </div>
+        <div class="eyebrow">
+            Fotografia & Videomaker
+        </div>
 
-      <img
-        src="bbz_01.png"
-        alt="BBZ Fotografia Esportiva"
-        class="logo"
-      >
+        <img
+            src="bbz_01.png"
+            alt="BBZ Fotografia Esportiva"
+            class="logo"
+        >
 
-      <div class="subtitle">
-        Imagens que contam histórias.
-      </div>
+        <div class="subtitle">
+            Imagens que contam histórias.
+        </div>
 
-      <a href="#portfolio" class="button">
-        Ver portfólio
-      </a>
+        <a href="#portfolio" class="button">
+            Ver portfólio
+        </a>
 
     </div>
 
-  </section>
+</section>
 
 
 
-  <!-- =====================================================
-       PORTFÓLIO
-  ====================================================== -->
+<!-- =========================
+     PORTFÓLIO
+========================= -->
 
-  <section class="portfolio" id="portfolio">
+<section class="portfolio" id="portfolio">
 
     <div class="portfolio-header reveal">
 
-      <div class="portfolio-label">
-        Portfólio
-      </div>
+        <div class="portfolio-label">
+            Portfólio
+        </div>
 
-      <h2 class="portfolio-title">
-        Movimento.<br>
-        Intensidade.<br>
-        História.
-      </h2>
+        <h2 class="portfolio-title">
+            Movimento.<br>
+            Intensidade.<br>
+            História.
+        </h2>
 
-      <p class="portfolio-description">
-        Fotografia esportiva e produção audiovisual
-        para atletas, eventos e momentos que merecem
-        ser registrados.
-      </p>
+        <p class="portfolio-description">
+            Fotografia esportiva e produção audiovisual
+            para atletas, eventos e momentos que merecem
+            ser registrados.
+        </p>
 
     </div>
 
-
-    <!-- ===================================================
-         GALERIA
-    ==================================================== -->
 
     <div class="gallery">
 
 
-      <!-- 01 -->
+        <!-- 01 -->
 
-      <div class="gallery-item reveal">
+        <div class="gallery-item reveal" onclick="openGallery('casamento')">
 
-        <img
-          src="JIU-JITSU.jpg"
-          alt="Fotografia de Jiu-Jitsu"
-        >
+            <img
+                src="JIU-JITSU.jpg"
+                alt="Fotografia de Jiu-Jitsu"
+            >
 
-        <div class="gallery-title">
+            <div class="gallery-title">
 
-          <span class="gallery-number">
-            01
-          </span>
+                <span class="gallery-number">
+                    01
+                </span>
 
-          <span>
-            Jiu-Jitsu
-          </span>
+                <span>
+                    Jiu-Jitsu
+                </span>
 
-        </div>
-
-      </div>
-
-
-      <!-- 02 -->
-
-      <div class="gallery-item reveal">
-
-        <img
-          src="CASAMENTO.jpg"
-          alt="Fotografia de casamento"
-        >
-
-        <div class="gallery-title">
-
-          <span class="gallery-number">
-            02
-          </span>
-
-          <span>
-            Casamento
-          </span>
+            </div>
 
         </div>
 
-      </div>
 
 
-      <!-- 03 -->
+        <!-- 02 -->
 
-      <div class="gallery-item reveal">
+        <div class="gallery-item reveal" onclick="openGallery('casamento')">
 
-        <img
-          src="LIFESTYLI.jpg"
-          alt="Fotografia Lifestyle"
-        >
+            <img
+                src="CASAMENTO.jpg"
+                alt="Fotografia de casamento"
+            >
 
-        <div class="gallery-title">
+            <div class="gallery-title">
 
-          <span class="gallery-number">
-            03
-          </span>
+                <span class="gallery-number">
+                    02
+                </span>
 
-          <span>
-            Lifestyle
-          </span>
+                <span>
+                    Casamento
+                </span>
 
-        </div>
-
-      </div>
-
-
-      <!-- 04 -->
-
-      <div class="gallery-item reveal">
-
-        <img
-          src="MARCA.jpg"
-          alt="Fotografia de marca"
-        >
-
-        <div class="gallery-title">
-
-          <span class="gallery-number">
-            04
-          </span>
-
-          <span>
-            Marca
-          </span>
+            </div>
 
         </div>
 
-      </div>
 
 
-      <!-- 05 -->
+        <!-- 03 -->
 
-      <div class="gallery-item reveal">
+        <div class="gallery-item reveal">
 
-        <img
-          src="MUSICA.jpg"
-          alt="Fotografia de música"
-        >
+            <img
+                src="LIFESTYLI.jpg"
+                alt="Fotografia Lifestyle"
+            >
 
-        <div class="gallery-title">
+            <div class="gallery-title">
 
-          <span class="gallery-number">
-            05
-          </span>
+                <span class="gallery-number">
+                    03
+                </span>
 
-          <span>
-            Música
-          </span>
+                <span>
+                    Lifestyle
+                </span>
 
-        </div>
-
-      </div>
-
-
-      <!-- 06 -->
-
-      <div class="gallery-item reveal">
-
-        <img
-          src="PODCAST.jpg"
-          alt="Fotografia de podcast e entrevista"
-        >
-
-        <div class="gallery-title">
-
-          <span class="gallery-number">
-            06
-          </span>
-
-          <span>
-            Podcast / Entrevista
-          </span>
+            </div>
 
         </div>
 
-      </div>
 
+
+        <!-- 04 -->
+
+        <div class="gallery-item reveal">
+
+            <img
+                src="MARCA.jpg"
+                alt="Fotografia de marca"
+            >
+
+            <div class="gallery-title">
+
+                <span class="gallery-number">
+                    04
+                </span>
+
+                <span>
+                    Marca
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 05 -->
+
+        <div class="gallery-item reveal">
+
+            <img
+                src="MUSICA.jpg"
+                alt="Fotografia de música"
+            >
+
+            <div class="gallery-title">
+
+                <span class="gallery-number">
+                    05
+                </span>
+
+                <span>
+                    Música
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 06 -->
+
+        <div class="gallery-item reveal">
+
+            <img
+                src="PODCAST.jpg"
+                alt="Fotografia de podcast e entrevista"
+            >
+
+            <div class="gallery-title">
+
+                <span class="gallery-number">
+                    06
+                </span>
+
+                <span>
+                    Podcast / Entrevista
+                </span>
+
+            </div>
+
+        </div>
 
     </div>
 
-  </section>
 
+    <div class="gallery-action reveal">
 
-
-  <!-- =====================================================
-       QUEM SOU EU
-  ====================================================== -->
-
-  <section class="about">
-
-    <div class="about-container">
-
-
-      <!-- FOTO -->
-
-      <div class="about-image-wrapper reveal">
-
-        <img
-          src="BARBOZA.jpg"
-          alt="Felipe Barbosa - Fotógrafo"
-          class="about-image"
+        <button
+            class="gallery-button"
+            onclick="openGallery('casamento')"
         >
-
-      </div>
-
-
-      <!-- TEXTO -->
-
-      <div class="about-content reveal">
-
-        <div class="about-label">
-          Quem sou eu
-        </div>
-
-        <h2 class="about-title">
-          Quem é<br>
-          Felipe <span>Barbosa?</span>
-        </h2>
-
-        <p class="about-text">
-          Sou Felipe Barbosa, fotógrafo e videomaker
-          apaixonado por transformar momentos em
-          imagens que carregam emoção, intensidade
-          e identidade.
-          <br><br>
-          Meu trabalho nasceu da paixão pela fotografia
-          esportiva, mas foi além das quadras, tatames
-          e eventos. Hoje registro histórias, pessoas,
-          marcas e momentos que merecem ser lembrados.
-        </p>
-
-        <a
-          href="#contato"
-          class="about-button"
-        >
-          Contratar
-        </a>
-
-      </div>
-
+            Ver galeria de casamento
+        </button>
 
     </div>
 
-  </section>
+</section>
 
 
 
-  <!-- =====================================================
-       CONTATO
-  ====================================================== -->
+<!-- =========================
+     QUEM SOU EU
+========================= -->
 
-  <section
-    class="contact"
-    id="contato"
-  >
+<section class="about">
+
+    <div class="about-inner reveal">
+
+        <div>
+
+            <img
+                src="BARBOZA.jpg"
+                alt="Felipe Barbosa"
+                class="about-image"
+            >
+
+        </div>
+
+
+        <div class="about-content">
+
+            <div class="about-label">
+                Quem sou eu
+            </div>
+
+            <h2 class="about-title">
+                Felipe<br>
+                Barbosa
+            </h2>
+
+            <p class="about-text">
+
+                Fotógrafo e videomaker apaixonado por
+                transformar momentos em imagens que
+                permanecem.
+
+                <br><br>
+
+                Meu trabalho busca encontrar aquilo que
+                muitas vezes passa despercebido: a
+                intensidade, a emoção, o movimento e
+                a personalidade de cada história.
+
+            </p>
+
+            <a
+                href="#contato"
+                class="about-button"
+            >
+                Contratar
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTATO
+========================= -->
+
+<section class="contact" id="contato">
 
     <div class="contact-label">
-      Vamos trabalhar juntos?
+        Vamos trabalhar juntos?
     </div>
 
     <h2>
-      Sua história.<br>
-      Nosso olhar.
+        Sua história.<br>
+        Nosso olhar.
     </h2>
 
     <p>
-      Entre em contato para cobertura de eventos,
-      fotografia esportiva e produção audiovisual.
+        Entre em contato para cobertura de eventos,
+        fotografia esportiva e produção audiovisual.
     </p>
 
     <a
-      href="https://wa.me/5500000000000"
-      class="contact-button"
-      target="_blank"
+        href="https://wa.me/5500000000000"
+        class="contact-button"
+        target="_blank"
     >
-      Falar pelo WhatsApp
+        Falar pelo WhatsApp
     </a>
 
-  </section>
+</section>
 
 
 
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
-
-  <footer>
-
-    © 2026
-    <span>BBZ</span>
-    Fotografia Esportiva
-
-  </footer>
+<footer>
+    © 2026 BBZ Fotografia Esportiva
+</footer>
 
 
 
-  <!-- =====================================================
-       JAVASCRIPT - ANIMAÇÕES AO ROLAR
-  ====================================================== -->
+<!-- =========================
+     MODAL
+========================= -->
 
-  <script>
+<div
+    class="modal"
+    id="galleryModal"
+>
 
-    const revealElements =
-      document.querySelectorAll(".reveal");
+    <div class="modal-header">
+
+        <div
+            class="modal-title"
+            id="modalTitle"
+        >
+            Casamento
+        </div>
+
+        <button
+            class="modal-close"
+            onclick="closeGallery()"
+            aria-label="Fechar"
+        >
+            ×
+        </button>
+
+    </div>
 
 
-    const observer =
-      new IntersectionObserver(
-        (entries) => {
+    <div
+        class="modal-gallery"
+        id="modalGallery"
+    ></div>
 
-          entries.forEach(
-            (entry) => {
+</div>
 
-              if (entry.isIntersecting) {
 
-                entry.target.classList.add("active");
 
-                observer.unobserve(entry.target);
+<script>
 
-              }
+/* =========================
+   REVEAL AO DESCER
+========================= */
+
+const revealElements =
+document.querySelectorAll('.reveal');
+
+const revealObserver =
+new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add('active');
+
+                revealObserver.unobserve(entry.target);
 
             }
-          );
 
-        },
-        {
-          threshold: 0.12
+        });
+
+    },
+    {
+        threshold:0.12
+    }
+);
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+/* =========================
+   GALERIA GITHUB
+========================= */
+
+async function openGallery(folder){
+
+    const modal =
+    document.getElementById('galleryModal');
+
+    const gallery =
+    document.getElementById('modalGallery');
+
+    const title =
+    document.getElementById('modalTitle');
+
+
+    modal.classList.add('active');
+
+    document.body.style.overflow='hidden';
+
+    gallery.innerHTML='';
+
+
+    if(folder === 'casamento'){
+
+        title.textContent='Casamento';
+
+    }
+
+
+    gallery.innerHTML = `
+        <div style="
+            grid-column:1/-1;
+            text-align:center;
+            padding:80px 20px;
+            color:#777;
+            letter-spacing:2px;
+            font-size:11px;
+            text-transform:uppercase;
+        ">
+            Carregando fotografias...
+        </div>
+    `;
+
+
+    try{
+
+        const response = await fetch(
+            'https://api.github.com/repos/barbozafotografiabbz-stack/BBZ-PORTFOLIO/contents/fotos/' + folder
+        );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                'Não foi possível acessar a pasta.'
+            );
+
         }
-      );
 
 
-    revealElements.forEach(
-      (element) => {
+        const files = await response.json();
 
-        observer.observe(element);
 
-      }
-    );
+        const images =
+        files.filter(file => {
 
-  </script>
+            return file.type === 'file' &&
+            /\.(jpg|jpeg|png|webp)$/i.test(file.name);
+
+        });
+
+
+        gallery.innerHTML='';
+
+
+        if(images.length === 0){
+
+            gallery.innerHTML=`
+                <div style="
+                    grid-column:1/-1;
+                    text-align:center;
+                    padding:80px 20px;
+                    color:#777;
+                ">
+                    Nenhuma fotografia encontrada.
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        images.forEach((file,index)=>{
+
+            const img =
+            document.createElement('img');
+
+            img.className='modal-photo';
+
+            img.src=file.download_url;
+
+            img.alt='Fotografia de casamento ' + (index + 1);
+
+            img.loading='lazy';
+
+            img.style.animationDelay =
+            (index * 0.05) + 's';
+
+
+            gallery.appendChild(img);
+
+        });
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        gallery.innerHTML=`
+            <div style="
+                grid-column:1/-1;
+                text-align:center;
+                padding:80px 20px;
+                color:#777;
+                line-height:1.8;
+            ">
+                Não foi possível carregar a galeria.<br>
+                Tente novamente em alguns segundos.
+            </div>
+        `;
+
+    }
+
+}
+
+
+/* =========================
+   FECHAR GALERIA
+========================= */
+
+function closeGallery(){
+
+    const modal =
+    document.getElementById('galleryModal');
+
+    modal.classList.remove('active');
+
+    document.body.style.overflow='';
+
+}
+
+
+/* =========================
+   ESC
+========================= */
+
+document.addEventListener(
+    'keydown',
+    function(event){
+
+        if(event.key === 'Escape'){
+
+            closeGallery();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   CLIQUE FORA
+========================= */
+
+document.getElementById('galleryModal')
+.addEventListener(
+    'click',
+    function(event){
+
+        if(event.target === this){
+
+            closeGallery();
+
+        }
+
+    }
+);
+
+</script>
 
 
 </body>
