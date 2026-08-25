@@ -83,18 +83,19 @@
       border-color: #fff;
     }
 
+
     /* =========================
        PORTFÓLIO
     ========================== */
 
     .portfolio {
-      padding: 120px 5vw;
+      padding: 110px 30px;
       background: #0d0d0d;
     }
 
     .portfolio-header {
       max-width: 1100px;
-      margin: 0 auto 60px;
+      margin: 0 auto 55px;
     }
 
     .portfolio-label {
@@ -120,35 +121,79 @@
       line-height: 1.7;
     }
 
+
     /* =========================
        GALERIA
     ========================== */
 
     .gallery {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-}
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
 
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  background: #151515;
-  border-radius: 2px;
-}
+      /* 3 CARDS POR LINHA */
+      grid-template-columns: repeat(3, 1fr);
 
-.gallery-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform .5s ease;
-}
+      gap: 14px;
+    }
 
-.gallery-item:hover img {
-  transform: scale(1.02);
-}
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      background: #151515;
+      border-radius: 2px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform .5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+
+
+    /* =========================
+       TÍTULO DOS CARDS
+    ========================== */
+
+    .gallery-title {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      padding: 18px 18px 16px;
+
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,.85),
+        rgba(0,0,0,.45),
+        transparent
+      );
+
+      color: #fff;
+
+      font-size: 13px;
+      font-weight: 600;
+
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .gallery-number {
+      color: #aaa;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
 
     /* =========================
        CONTATO
@@ -178,7 +223,6 @@
     .contact p {
       color: #888;
       margin-bottom: 40px;
-      line-height: 1.6;
     }
 
     .contact-button {
@@ -198,6 +242,7 @@
       color: #000;
     }
 
+
     /* =========================
        FOOTER
     ========================== */
@@ -211,11 +256,25 @@
       letter-spacing: 2px;
     }
 
+
+    /* =========================
+       TABLET
+    ========================== */
+
+    @media (max-width: 900px) {
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+
     /* =========================
        MOBILE
     ========================== */
 
-    @media (max-width: 700px) {
+    @media (max-width: 600px) {
 
       .hero {
         min-height: 100svh;
@@ -245,22 +304,28 @@
         padding: 80px 20px;
       }
 
+      /* NO CELULAR FICA 1 POR LINHA */
       .gallery {
         grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .gallery-title {
+        font-size: 12px;
       }
 
       .contact {
         padding: 100px 20px;
       }
 
-      .contact h2 {
-        letter-spacing: -2px;
-      }
     }
+
   </style>
 </head>
 
+
 <body>
+
 
   <!-- =========================
        HERO
@@ -275,7 +340,7 @@
       </div>
 
       <img
-        src="./bbz_01.png"
+        src="bbz_01.png"
         alt="BBZ Fotografia Esportiva"
         class="logo"
       >
@@ -291,6 +356,7 @@
     </div>
 
   </section>
+
 
 
   <!-- =========================
@@ -320,59 +386,124 @@
     </div>
 
 
+    <!-- =========================
+         GALERIA 3 x 2
+    ========================== -->
+
     <div class="gallery">
 
+
+      <!-- 01 JIU-JITSU -->
+
       <div class="gallery-item">
+
         <img
-          src="./JIU-JITSU.jpg"
+          src="JIU-JITSU.jpg"
           alt="Fotografia de Jiu-Jitsu"
-          loading="lazy"
         >
+
+        <div class="gallery-title">
+          <span class="gallery-number">01</span>
+          <span>Jiu-Jitsu</span>
+        </div>
+
       </div>
 
+
+
+      <!-- 02 CASAMENTO -->
+
       <div class="gallery-item">
+
         <img
-          src="./CASAMENTO.jpg"
+          src="CASAMENTO.jpg"
           alt="Fotografia de casamento"
-          loading="lazy"
         >
+
+        <div class="gallery-title">
+          <span class="gallery-number">02</span>
+          <span>Casamento</span>
+        </div>
+
       </div>
 
+
+
+      <!-- 03 LIFESTYLE -->
+
       <div class="gallery-item">
+
         <img
-          src="./LIFESTYLI.jpg"
+          src="LIFESTYLI.jpg"
           alt="Fotografia Lifestyle"
-          loading="lazy"
         >
+
+        <div class="gallery-title">
+          <span class="gallery-number">03</span>
+          <span>Lifestyle</span>
+        </div>
+
       </div>
 
+
+
+      <!-- 04 MARCA -->
+
       <div class="gallery-item">
+
         <img
-          src="./MARCA.jpg"
+          src="MARCA.jpg"
           alt="Fotografia de marca"
-          loading="lazy"
         >
+
+        <div class="gallery-title">
+          <span class="gallery-number">04</span>
+          <span>Marca</span>
+        </div>
+
       </div>
 
+
+
+      <!-- 05 MÚSICA -->
+
       <div class="gallery-item">
+
         <img
-          src="./MUSICA.jpg"
+          src="MUSICA.jpg"
           alt="Fotografia de música"
-          loading="lazy"
         >
+
+        <div class="gallery-title">
+          <span class="gallery-number">05</span>
+          <span>Música</span>
+        </div>
+
       </div>
 
+
+
+      <!-- 06 PODCAST / ENTREVISTA -->
+
       <div class="gallery-item">
+
         <img
-          src="./PODCAST.jpg"
-          alt="Fotografia de podcast"
-          loading="lazy"
+          src="PODCAST.jpg"
+          alt="Fotografia de podcast e entrevista"
         >
+
+        <div class="gallery-title">
+          <span class="gallery-number">06</span>
+          <span>Podcast / Entrevista</span>
+        </div>
+
       </div>
+
 
     </div>
 
   </section>
+
 
 
   <!-- =========================
@@ -399,12 +530,12 @@
       href="https://wa.me/5500000000000"
       class="contact-button"
       target="_blank"
-      rel="noopener noreferrer"
     >
       Falar pelo WhatsApp
     </a>
 
   </section>
+
 
 
   <!-- =========================
@@ -414,6 +545,7 @@
   <footer>
     © 2026 BBZ Fotografia Esportiva
   </footer>
+
 
 </body>
 </html>
