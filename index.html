@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BBZ Fotografia Esportiva</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: 900px;
+    }
+
+    /* TEXTO PEQUENO ACIMA DA LOGO */
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      opacity: 0.6;
+      margin-bottom: 28px;
+    }
+
+    /* LOGO */
+    .logo {
+      width: min(600px, 90vw);
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* FRASE ABAIXO DA LOGO */
+    .subtitle {
+      margin-top: 35px;
+      font-size: 16px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    /* BOTÃO */
+    .button {
+      display: inline-block;
+      margin-top: 45px;
+      padding: 15px 30px;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #fff;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 600px) {
+
+      .hero {
+        padding: 30px 20px;
+      }
+
+      .eyebrow {
+        font-size: 10px;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+      }
+
+      .logo {
+        width: 90vw;
+      }
+
+      .subtitle {
+        margin-top: 25px;
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+
+      .button {
+        margin-top: 35px;
+        padding: 13px 24px;
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        Fotografia & Videomaker
+      </div>
+
+      <img
+        src="bbz_01.png"
+        alt="BBZ Fotografia Esportiva"
+        class="logo"
+      >
+
+      <div class="subtitle">
+        Imagens que contam histórias.
+      </div>
+
+      <a href="#portfolio" class="button">
+        Ver portfólio
+      </a>
+
+    </div>
+
+  </section>
+
+</body>
+</html>
